@@ -68,3 +68,155 @@ const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.
 document.querySelectorAll('.journey-intro,.section,.service-grid article,.planning-card,.planning-strip>div,.step,.ops-grid>*,.cta-box').forEach(x=>{x.classList.add('reveal');reveal.observe(x)});
 document.querySelector('.sequence-bg-video')?.addEventListener('canplay',e=>e.target.play().catch(()=>{}));
 document.getElementById('year').textContent=new Date().getFullYear();
+
+/* Project portfolio + interactive India state map */
+const projectData = {
+  "Kerala": [
+    {name:"Establishment of Ready-to-Eat Tuna Canned Processing Unit", scheme:"PMMSY"},
+    {name:"Strengthening of Primary Fisheries Cooperatives", scheme:"PM-MKSSY"}
+  ],
+  "Odisha": [
+    {name:"Establishment of FRP Boats, Tanks and Aquarium Manufacturing Unit", scheme:"PMMSY"},
+    {name:"Establishment of State-of-the-Art 100 TPD Feed Plant", scheme:"MKUY"},
+    {name:"Establishment of Shrimp Processing Facility", scheme:"PMMSY"},
+    {name:"Establishment of Intensive Black Soldier Fly Unit – Waste to Wealth", scheme:"CSR Fund"},
+    {name:"Establishment of Aquatourism Project", scheme:"PMMSY"},
+    {name:"Establishment of Cluster Biofloc Tanks for Magur and Singi Farming", scheme:"—"}
+  ],
+  "West Bengal": [
+    {name:"Establishment of Integrated Hatchery to Processing Unit with Retail Outlet Facility", scheme:"—", count:4}
+  ],
+  "Telangana": [
+    {name:"Establishment of Intensive Murrel Farming in HDPE-Lined Tanks with Retail Outlet", scheme:"PMMSY"},
+    {name:"Strengthening of Primary Fisheries Cooperatives", scheme:"PM-MKSSY"},
+    {name:"Establishment of RAS Farming Facility with Feed Mill and Retail Outlet", scheme:"PMMSY"},
+    {name:"Establishment of Intensive Murrel Nursery Rearing and Grow-out Farming in HDPE-Lined Tanks with Retail Outlet", scheme:"PMMSY"},
+    {name:"Establishment of Biofloc Unit at KVK Mamnoor, Warangal", scheme:"—"}
+  ],
+  "Andhra Pradesh": [
+    {name:"Establishment of Vannamei Nursery Facility in Biofloc System", scheme:"PMMSY"},
+    {name:"Establishment of Intensive Fish Farming with Retail Outlet", scheme:"PMMSY"},
+    {name:"Establishment of Vannamei Processing Facility", scheme:"PMMSY"},
+    {name:"Establishment of Marine Finfish Hatchery Facility", scheme:"PMMSY"},
+    {name:"Establishment of Shrimp, Fish Processing and Value Addition Unit", scheme:"MoFPI"},
+    {name:"Establishment of 100 TPD Shrimp Feed Production Plant", scheme:"PMMSY"}
+  ]
+};
+const activeProjectStates = new Set(Object.keys(projectData));
+const stateAliases = {
+  "West Bengal": "West Bengal",
+  "Odisha": "Odisha",
+  "Orissa": "Odisha",
+  "Telangana": "Telangana",
+  "Andhra Pradesh": "Andhra Pradesh",
+  "Kerala": "Kerala"
+};
+
+function projectStateName(props={}){
+  const raw = props.name || props.NAME_1 || props.ST_NM || props.st_nm || props.shapeName || props.STATE || props.state || props.State || '';
+  return stateAliases[raw] || raw;
+}
+
+function renderStateProjects(state){
+  const title = document.getElementById('selectedStateName');
+  const count = document.getElementById('selectedStateCount');
+  const list = document.getElementById('stateProjectList');
+  if(!title || !count || !list) return;
+  const projects = projectData[state] || [];
+  const total = projects.reduce((sum,p)=>sum+(p.count||1),0);
+  title.textContent = state || 'Select a state';
+  count.textContent = `${total} project${total===1?'':'s'}`;
+  if(!projects.length){
+    list.innerHTML = '<div class="state-project"><h4>No project record listed</h4><p>The supplied project document does not list a sanctioned project for this state.</p></div>';
+    return;
+  }
+  list.innerHTML = projects.map(p => `
+    <article class="state-project">
+      <h4>${p.name}${p.count ? ` <span aria-label="${p.count} projects">(${p.count} projects)</span>` : ''}</h4>
+      <p>State-wise project listed in the supplied Blue Chain Aqua project document.</p>
+      <span class="scheme">${p.scheme}</span>
+    </article>
+  `).join('');
+}
+
+function setupProjectTabs(){}
+
+let projectMap=null;
+function renderProjectMapFallback(){
+  const mapEl=document.getElementById('indiaProjectsMap');
+  if(!mapEl) return;
+  const states=[
+    ['Kerala','7%','74%'],
+    ['Andhra Pradesh','48%','72%'],
+    ['Telangana','45%','60%'],
+    ['Odisha','66%','49%'],
+    ['West Bengal','78%','43%']
+  ];
+  mapEl.innerHTML=`
+    <div class="india-fallback-map" aria-label="Blue Chain Aqua India project coverage map">
+      <div class="fallback-outline" aria-hidden="true"></div>
+      <div class="fallback-title">INDIA • PROJECT COVERAGE</div>
+      ${states.map(([name,left,top])=>`<button type="button" class="fallback-state" data-state="${name}" style="left:${left};top:${top}">${name}<b>${(projectData[name]||[]).reduce((sum,p)=>sum+(p.count||1),0)}</b></button>`).join('')}
+      <div class="fallback-note">Click a highlighted state to view its projects</div>
+    </div>`;
+  mapEl.querySelectorAll('.fallback-state').forEach(btn=>btn.addEventListener('click',()=>renderStateProjects(btn.dataset.state)));
+  renderStateProjects('Andhra Pradesh');
+}
+
+async function setupProjectMap(){
+  const mapEl=document.getElementById('indiaProjectsMap');
+  if(!mapEl) return;
+  if(typeof L==='undefined'){ renderProjectMapFallback(); return; }
+  projectMap=L.map(mapEl,{zoomControl:true,scrollWheelZoom:false,dragging:true,doubleClickZoom:true,touchZoom:true,boxZoom:false,keyboard:true,attributionControl:false,zoomSnap:.25,zoomDelta:.5,zoomControlPosition:'topleft'});
+  L.control.attribution({prefix:false}).addAttribution('India map data: udit-001/india-maps-data');
+  const geoUrls=[
+    'https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/geojson/india.geojson',
+    'https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@HEAD/geojson/india.geojson'
+  ];
+  try{
+    let geo=null;
+    for(const geoUrl of geoUrls){
+      try{
+        const res=await fetch(geoUrl,{cache:'no-store'});
+        if(!res.ok) continue;
+        geo=await res.json();
+        if(geo && geo.features) break;
+      }catch(e){}
+    }
+    if(!geo || !geo.features) throw new Error('Map data could not be loaded');
+    const layer=L.geoJSON(geo,{style:feature=>{
+      const state=projectStateName(feature.properties||{});
+      const active=activeProjectStates.has(state);
+      return {color:active?'#0b7789':'#b8ced2',weight:active?1.7:.65,fillColor:active?'#39c7c8':'#dfeceb',fillOpacity:active?.82:.55};
+    },onEachFeature:(feature,layer)=>{
+      const state=projectStateName(feature.properties||{});
+      const active=activeProjectStates.has(state);
+      layer.on({
+        mouseover:e=>{e.target.setStyle({weight:active?2.8:1.2,fillOpacity:active?1:.75});e.target.bringToFront();},
+        mouseout:e=>{layer.setStyle({color:active?'#0b7789':'#b8ced2',weight:active?1.7:.65,fillColor:active?'#39c7c8':'#dfeceb',fillOpacity:active?.82:.55});},
+        click:()=>{renderStateProjects(active?state:state); if(active) document.getElementById('selectedStateName')?.scrollIntoView({behavior:'smooth',block:'nearest'});}
+      });
+      if(active){ layer.bindTooltip(state,{permanent:false,direction:'top',className:'map-hover-label',opacity:.98,sticky:true}); }
+    }}).addTo(projectMap);
+    projectMap.fitBounds(layer.getBounds(),{padding:[15,15]});
+    renderStateProjects('Andhra Pradesh');
+  }catch(err){
+    projectMap?.remove();
+    projectMap=null;
+    renderProjectMapFallback();
+  }
+}
+
+setupProjectTabs();
+setupProjectMap();
+
+// Keep the project metric linked to the single Projects section.
+document.querySelectorAll('.ops-stats > div').forEach((card,index)=>{
+  if(index!==1) return;
+  card.setAttribute('role','button');
+  card.setAttribute('tabindex','0');
+  card.setAttribute('aria-label','View projects');
+  const open=()=>document.getElementById('track')?.scrollIntoView({behavior:'smooth',block:'start'});
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+});

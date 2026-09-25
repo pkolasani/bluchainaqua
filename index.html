@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="assets/blue-chain-aqua-logo-transparent.png">
 </head>
@@ -208,13 +209,58 @@
 <div class="step"><span>05</span><i>05</i><h3>Sanction &amp; Disbursement</h3><p>Coordinate with banks and government.</p></div><div class="line"></div>
 <div class="step final"><span>06</span><i>06</i><h3>Implementation Support</h3><p>Guidance until the project is operational.</p></div></div><blockquote>“From the first application to the final harvest — we're with you at every step.”</blockquote></div></section>
 
-<section class="operations" id="track"><div class="wrap ops-grid"><div class="india-card"><div class="eyebrow">PAN INDIA OPERATIONS</div><h2>Across India, For a Stronger<br><em>Aquaculture Ecosystem</em></h2><p>Serving farmers, cooperatives, SHGs, and aquaculture enterprises across major aquaculture states.</p><div class="india-map"><div class="state-dot d1"></div><div class="state-dot d2"></div><div class="state-dot d3"></div><div class="state-dot d4"></div><div class="state-dot d5"></div><div class="state-dot d6"></div><div class="india-shape">INDIA</div></div></div><div class="ops-stats"><div><b>7+</b><span>States Covered</span></div><div><b>25+</b><span>Projects Sanctioned</span></div><div><b>100%</b><span>Sanction Rate</span></div><div><b>0</b><span>Rejected Submissions</span></div></div><div class="ops-image"><img src="assets/aquaculture-project.jpg" alt="Aerial aquaculture ponds"><div class="image-caption">Empowering farmers from coastal belts to inland aquaculture zones.</div></div></div></section>
+<section class="operations projects-section" id="track">
+  <div class="wrap">
+    <div class="projects-heading">
+      <div>
+        <div class="eyebrow">OUR PROJECTS</div>
+        <h2>Our Completed<br><em>Projects.</em></h2>
+        <p>Explore our completed project portfolio across India. Click a highlighted state on the map to view the projects associated with that location.</p>
+      </div>
+      <div class="projects-summary">
+        <div><b>23</b><span>Projects listed</span></div>
+        <div><b>5</b><span>States covered</span></div>
+      </div>
+    </div>
+
+    <div class="completed-projects-panel">
+      <div class="project-map-card">
+        <div class="map-head">
+          <div>
+            <div class="eyebrow">PROJECT COVERAGE</div>
+            <h3>Where we are working</h3>
+            <p>Highlighted states have projects. Click a state to view its project list.</p>
+          </div>
+          <div class="map-legend"><span class="legend-active"></span> Project state</div>
+        </div>
+
+        <div id="indiaProjectsMap" class="india-projects-map" aria-label="Interactive map of India showing Blue Chain Aqua project states"></div>
+
+        <div class="map-instructions">
+          <span><b>1</b> Select a highlighted state</span>
+          <span><b>2</b> View projects on the right</span>
+        </div>
+
+        <div class="map-source">India state boundaries are shown for geographic reference. Project information is from the Blue Chain Aqua project data.</div>
+      </div>
+
+      <aside class="project-details" aria-live="polite">
+        <div class="project-details-top">
+          <div class="eyebrow">SELECTED STATE</div>
+          <h3 id="selectedStateName">Andhra Pradesh</h3>
+          <span class="project-count" id="selectedStateCount">6 projects</span>
+        </div>
+        <div id="stateProjectList" class="state-project-list"></div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section class="why section" id="why"><div class="wrap"><div class="section-title"><div><div class="eyebrow">WHY FARMERS CHOOSE BLUE CHAIN AQUA</div><h2>Expertise that works<br><em>for your project.</em></h2></div></div><div class="why-grid">
 <article><span>01</span><h3>Government-aligned expertise</h3><p>Our team understands NFDB, Ministry of Fisheries and state requirements.</p></article>
 <article><span>02</span><h3>Technical + financial depth</h3><p>Civil engineering, aquaculture science and financial analysis under one roof.</p></article>
-<article><span>03</span><h3>End-to-end accountability</h3><p>We remain engaged from feasibility through sanction and implementation.</p></article>
-<article><span>04</span><h3>PAN India reach</h3><p>Local regulatory knowledge across major aquaculture states.</p></article>
+<article><span>03</span><h3>Bankers &amp; Financial Support</h3><p>Support with project finance, banking requirements, loan documentation and financial planning.</p></article>
+<article><span>04</span><h3>Chartered Accountants</h3><p>Professional support for financial analysis, project documentation, accounting and compliance requirements.</p></article>
 <article><span>05</span><h3>Farmer-first approach</h3><p>Maximise subsidy benefit while protecting project viability.</p></article>
 <article class="quote"><p>“Blue Chain Aqua made the complex simple. We got our sanction without any hassle.”</p><small>— Aquaculture Farmer, Andhra Pradesh</small></article>
 </div></div></section>
@@ -228,6 +274,7 @@
 </section>
 
 <footer><div class="wrap footer"><div class="brand footer-brand"><img class="brand-image footer-logo-image" src="assets/blue-chain-aqua-logo-transparent.png" alt="Blue Chain Aqua"></div><div class="footer-links"><a href="#journey">Journey</a><a href="#services">Services</a><a href="#process">Process</a><a href="#track">Projects</a><a href="#contact">Contact</a></div><div class="footer-copy"><div class="footer-legal"><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a></div><div>© <span id="year"></span> Blue Chain Aqua. All rights reserved.</div></div></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="script.js"></script>
 </body>
 </html>
