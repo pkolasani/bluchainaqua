@@ -263,3 +263,228 @@ footer{background:#eef7f3;border-top:1px solid #d8e9e5;margin-top:0}
 @media(max-width:900px){.projects-heading{display:block}.projects-summary{margin-top:20px;width:max-content}.completed-projects-panel{grid-template-columns:1fr}.india-projects-map{height:500px}.project-details{min-height:420px}}
 @media(max-width:600px){.projects-section{padding:65px 0}.projects-heading h2{font-size:42px}.projects-summary{width:100%}.projects-summary div{flex:1;min-width:0;padding:15px}.map-head{display:block}.map-legend{margin-top:9px}.india-projects-map{height:420px;margin:0 5px}.map-instructions{padding-left:18px;padding-right:18px}.map-source{padding-left:18px;padding-right:18px}.project-details{padding:21px}.project-details h3{font-size:31px}}
 
+
+
+/* =========================================================
+   BLUE CHAIN AQUA — REFINED SECTION RHYTHM
+   Balanced vertical spacing for a calm, premium flow.
+   The immersive 8-stage hero/3D sequence is intentionally
+   untouched because its height controls the experience.
+   ========================================================= */
+
+:root{
+  --section-space: 64px;
+  --section-space-tight: 52px;
+}
+
+/* Main content sections */
+.journey-intro,
+.opportunity,
+.section,
+.planning,
+.process,
+.operations,
+.projects-section{
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+
+/* Keep the first visual journey breathing without a huge gap */
+.journey-intro{
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+/* About / opportunity */
+.opportunity{
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+/* Services, planning and why-us */
+.services,
+.planning,
+.why,
+.operations{
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+
+/* Planning was previously oversized; keep it compact and premium */
+.planning{
+  padding-top: 64px;
+  padding-bottom: 60px;
+}
+
+.planning-grid{
+  margin-top: 34px;
+}
+
+/* Process dark section */
+.process{
+  padding-top: 62px;
+  padding-bottom: 64px;
+}
+
+/* Projects/map */
+.projects-section{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.projects-heading{
+  margin-bottom: 22px;
+}
+
+/* Map card should not create a second large vertical gap */
+.map-head{
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.india-projects-map{
+  height: 520px;
+}
+
+.map-instructions{
+  padding-top: 10px;
+  padding-bottom: 2px;
+}
+
+.map-source{
+  padding-top: 6px;
+  padding-bottom: 14px;
+}
+
+/* Why-us */
+.why{
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+
+/* Contact CTA — compact but still visually separated */
+.cta{
+  padding-top: 30px;
+  padding-bottom: 34px;
+}
+
+.cta-box{
+  padding: 34px 36px;
+}
+
+/* Legal information */
+.legal-panels{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.legal-panel{
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+/* Footer */
+footer{
+  margin-top: 0;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+/* Keep headings close to their content */
+.journey-intro h2,
+.opp-copy h2,
+.section-title h2,
+.process-title h2,
+.india-card h2,
+.why h2,
+.cta h2{
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+/* Consistent spacing inside common content groups */
+.section-lead{
+  margin-bottom: 6px;
+}
+
+.service-grid,
+.why-grid{
+  margin-top: 28px;
+}
+
+.process blockquote{
+  margin-top: 28px;
+}
+
+/* Mobile: tighter, but never cramped */
+@media (max-width: 780px){
+  .journey-intro,
+  .opportunity,
+  .section,
+  .planning,
+  .process,
+  .operations,
+  .projects-section,
+  .why{
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .journey-intro{
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .planning{
+    padding-top: 46px;
+    padding-bottom: 44px;
+  }
+
+  .process{
+    padding-top: 46px;
+    padding-bottom: 48px;
+  }
+
+  .projects-section{
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .india-projects-map{
+    height: 450px;
+  }
+
+  .service-grid,
+  .why-grid{
+    margin-top: 22px;
+  }
+
+  .cta{
+    padding-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .cta-box{
+    padding: 28px 22px;
+  }
+
+  .legal-panel{
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  footer{
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px){
+  .india-projects-map{
+    height: 410px;
+  }
+
+  .projects-heading{
+    margin-bottom: 18px;
+  }
+}
