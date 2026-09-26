@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Blue Chain Aqua — Aquaculture & Fisheries Consultancy across India. DPRs, feasibility, financial analysis, scheme facilitation and end-to-end project support.">
+<title>Blue Chain Aqua | From Value Chains to the Blue Economy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/blue-chain-aqua-logo-transparent.png">
+</head>
+<body class="intro-active">
+
+<!-- The uploaded intro video is preserved as the first screen. -->
+<div class="site-intro" id="siteIntro" aria-label="Blue Chain Aqua introduction">
+  <video id="introVideo" class="site-intro-video" autoplay playsinline preload="auto">
+    <source src="assets/intro-video.mp4" type="video/mp4">
+  </video>
+  <div class="site-intro-shade"></div>
+  <div class="site-intro-brand" aria-hidden="true">
+    <img class="intro-logo" src="assets/blue-chain-aqua-logo-transparent.png" alt="Blue Chain Aqua">
+    <div class="intro-subtitle">AQUACULTURE &amp; FISHERIES CONSULTANCY</div>
+  </div>
+  <div class="intro-sound-gate" id="introSoundGate" role="dialog" aria-label="Enable intro sound">
+    <button class="intro-sound-btn" id="introSoundBtn" type="button"><span class="sound-icon" aria-hidden="true">♪</span><span><b>Enter Blue Chain Aqua</b><small>Play intro with sound</small></span><span class="sound-arrow" aria-hidden="true">→</span></button>
+    <button class="intro-silent-btn" id="introSilentBtn" type="button">Continue silently</button>
+  </div>
+  <div class="site-intro-progress" aria-hidden="true"><span></span></div>
+  <button class="intro-skip bca-skip-intro-top" id="introSkip" type="button">Skip intro</button>
+</div>
+
+<header class="header">
+  <a class="brand" href="#home"><img class="brand-image" src="assets/blue-chain-aqua-logo-transparent.png" alt="Blue Chain Aqua"></a>
+  <button class="menu" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <nav>
+    <a href="#home">Home</a><a href="#journey">Journey</a><a href="#services">Services</a><a href="#planning">Planning</a><a href="#process">Our Process</a><a href="#track">Projects</a><a href="#organizations">Organizations</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="header-cta" href="#contact">Get a Consultation <span>→</span></a>
+</header>
+
+<main>
+<!-- 3D SEQUENTIAL EXPERIENCE -->
+<section class="sequence" id="home">
+  <div class="sequence-sticky">
+    <video class="sequence-bg-video" autoplay muted loop playsinline preload="none" poster="assets/hero-poster.jpg">
+      <source src="assets/blue-chain-aqua-hero.mp4" type="video/mp4">
+    </video>
+    <div class="sequence-bg"></div>
+    <div class="sequence-noise"></div>
+    <div class="sequence-progress" aria-label="Aquaculture journey progress">
+      <button class="progress-dot active" data-step="0" aria-label="Water Selection">01</button>
+      <button class="progress-dot" data-step="1" aria-label="Pond Preparation">02</button>
+      <button class="progress-dot" data-step="2" aria-label="Hatchery">03</button>
+      <button class="progress-dot" data-step="3" aria-label="Grow-out Farming">04</button>
+      <button class="progress-dot" data-step="4" aria-label="Harvesting">05</button>
+      <button class="progress-dot" data-step="5" aria-label="Processing">06</button>
+      <button class="progress-dot" data-step="6" aria-label="Market & Supply Chain">07</button>
+      <button class="progress-dot" data-step="7" aria-label="Blue Economy">08</button>
+    </div>
+    <div class="sequence-counter"><span id="stepNumber">01</span><small>/ 08</small></div>
+
+    <div class="sequence-copy">
+      <div class="sequence-kicker" id="stepKicker">SITE • WATER • VIABILITY</div>
+      <h1 id="stepTitle">Water<br><em>Selection</em></h1>
+      <p id="stepText">Start with the right water, land and environmental conditions. We assess the site before capital is committed.</p>
+      <div class="sequence-actions"><a class="seq-btn" href="#services">Explore the stage <span>→</span></a><span class="scroll-hint"><i></i> Scroll to continue</span></div>
+    </div>
+
+    <div class="scene" aria-hidden="true">
+      <div class="scene-glow"></div>
+      <div class="scene-floor"></div>
+      <div class="scene-object scene-water has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"><source src="https://videos.pexels.com/video-files/1394221/1394221-hd_1280_720_30fps.mp4" type="video/mp4"><source src="assets/stages/stage-01.mp4" type="video/mp4"></video>
+        <div class="water-pin">SITE READY</div>
+      </div>
+      <div class="scene-object scene-pond has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/aquaculture-project.jpg"><source src="https://videos.pexels.com/video-files/34521510/14626398_3840_2160_30fps.mp4" type="video/mp4"><source src="assets/stages/stage-02.mp4" type="video/mp4"></video>
+        <div class="pond-tag">POND DESIGN</div>
+      </div>
+      <div class="scene-object scene-hatchery has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"><source src="assets/stages/Hatchery.mp4" type="video/mp4"></video>
+        <div class="hatch-tag">BROODSTOCK → SEED</div>
+      </div>
+      <div class="scene-object scene-farm has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/aquaculture-project.jpg"><source src="https://videos.pexels.com/video-files/34450582/14598188_1920_1080_25fps.mp4" type="video/mp4"><source src="assets/stages/stage-04.mp4" type="video/mp4"></video>
+        <div class="farm-tag">FEED • WATER • GROWTH</div>
+      </div>
+      <div class="scene-object scene-harvest has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/aquaculture-project.jpg"><source src="https://videos.pexels.com/video-files/9019485/9019485-hd_2048_948_30fps.mp4" type="video/mp4"><source src="assets/stages/stage-05.mp4" type="video/mp4"></video>
+        <div class="harvest-tag">QUALITY HARVEST</div>
+      </div>
+      <div class="scene-object scene-processing has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"><source src="https://videos.pexels.com/video-files/31801703/13548704_3840_2160_24fps.mp4" type="video/mp4"><source src="assets/stages/stage-06.mp4" type="video/mp4"></video>
+        <div class="processing-tag">PROCESS • COLD • VALUE</div>
+      </div>
+      <div class="scene-object scene-market has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"><source src="https://videos.pexels.com/video-files/5564236/5564236-uhd_3840_2160_25fps.mp4" type="video/mp4"><source src="assets/stages/stage-07.mp4" type="video/mp4"></video>
+        <div class="market-tag">DOMESTIC • EXPORT • LOGISTICS</div>
+      </div>
+      <div class="scene-object scene-blue has-video">
+        <video class="stage-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg"><source src="https://videos.pexels.com/video-files/28784037/12477506_3840_2160_25fps.mp4" type="video/mp4"><source src="assets/stages/stage-08.mp4" type="video/mp4"></video>
+        <div class="blue-tag">BLUE ECONOMY</div>
+      </div>
+    </div>
+
+    <div class="sequence-metrics">
+      <div><b>25+</b><span>Projects sanctioned</span></div>
+      <div><b>100%</b><span>Sanction rate</span></div>
+      <div><b>7+</b><span>States covered</span></div>
+      <div><b>End-to-End</b><span>Engagement</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-intro" id="journey">
+  <div class="wrap">
+    <div class="eyebrow">THE AQUACULTURE JOURNEY</div>
+    <h2>From a site decision to a<br><em>sanction-ready enterprise.</em></h2>
+    <p>Each stage above is a real project decision. Scroll through the sequence to see how Blue Chain Aqua connects technical planning, government schemes, finance and implementation into one continuous pathway.</p>
+  </div>
+</section>
+
+<section class="opportunity" id="about">
+ <div class="wrap opp-grid">
+  <div class="opp-copy"><div class="eyebrow">THE OPPORTUNITY</div><h2>India's Aquaculture Potential<br>is Immense — <em>Let's Unlock It Together</em></h2><p>India is the 2nd largest fish producer globally, contributing approximately 8% of global fish production. The government has committed ₹20,050 crore under PMMSY — targeting 22 MMT fish production and 5.5 lakh new jobs.</p><a class="text-btn" href="#services">Know How We Help <span>→</span></a></div>
+  <div class="opp-stage"><div class="stage-island"><div class="stage-water"></div><div class="stage-bank"></div><div class="stage-house h1"></div><div class="stage-house h2"></div><div class="stage-pond s1"></div><div class="stage-pond s2"></div><div class="stage-pond s3"></div><div class="stage-road"></div><div class="stage-label">IDEA → SANCTION → IMPACT</div></div><div class="opp-pills"><span>Government Schemes</span><span>Technical Expertise</span><span>Financial Support</span><span>Sustainable Growth</span></div></div>
+ </div>
+</section>
+
+<section class="services section" id="services"><div class="wrap"><div class="section-title"><div><div class="eyebrow">OUR SERVICES</div><h2>Full-Spectrum Aquaculture<br><em>Consultancy</em></h2></div><a href="#planning">Plan a Project <span>→</span></a></div><div class="service-grid">
+<article><div class="icon">01</div><h3>Detailed Project Reports (DPR)</h3><p>Government-compliant and technically rigorous DPRs for successful applications.</p></article>
+<article><div class="icon">02</div><h3>Financial Analysis</h3><p>Cost estimation, loan structuring, subsidy mapping and ROI projections.</p></article>
+<article><div class="icon">03</div><h3>Feasibility Studies</h3><p>Site analysis, water, soil, species viability and regulatory compliance.</p></article>
+<article><div class="icon">04</div><h3>Impact Evaluation Studies</h3><p>Measure production outcomes, economic impact and scheme compliance.</p></article>
+<article><div class="icon">05</div><h3>Value Chain Insights</h3><p>From inputs to market — improve profitability across the value chain.</p></article>
+<article><div class="icon">06</div><h3>Subsidy &amp; Loan Facilitation</h3><p>End-to-end support with NFDB, PMMSY, NABARD and banks.</p></article>
+</div></div></section>
+
+
+<section class="planning section" id="planning">
+  <div class="wrap">
+    <div class="section-title planning-heading">
+      <div>
+        <div class="eyebrow">PROJECT PLANNING &amp; READINESS</div>
+        <h2>From site assessment to a<br><em>bankable project plan.</em></h2>
+      </div>
+      <p class="section-lead">A structured consulting pathway that brings technical feasibility, business planning, financial clarity and execution together before you commit major capital.</p>
+    </div>
+
+    <div class="planning-grid">
+      <article class="planning-card planning-card-featured">
+        <span class="planning-number">01</span>
+        <div class="planning-orbit" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="planning-card-content">
+          <h3>Assess &amp; Validate</h3>
+          <p>Understand whether the proposed aquaculture project is technically and commercially workable before moving into detailed investment.</p>
+          <ul>
+            <li>Site, land and water assessment</li>
+            <li>Species and production suitability</li>
+            <li>Constraints, risks and regulatory checks</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="planning-card">
+        <span class="planning-number">02</span>
+        <div class="planning-icon" aria-hidden="true">↗</div>
+        <h3>Plan the Business</h3>
+        <p>Translate the validated idea into a practical business plan with project scope, operating assumptions and financial visibility.</p>
+        <ul>
+          <li>Project scope and objectives</li>
+          <li>Cost and operating estimates</li>
+          <li>Revenue, ROI and cash-flow planning</li>
+        </ul>
+      </article>
+
+      <article class="planning-card">
+        <span class="planning-number">03</span>
+        <div class="planning-icon" aria-hidden="true">✓</div>
+        <h3>Build &amp; Execute</h3>
+        <p>Prepare the project for funding and implementation with documentation, scheme alignment and practical execution support.</p>
+        <ul>
+          <li>DPR and funding readiness</li>
+          <li>Scheme, subsidy and loan pathway</li>
+          <li>Implementation and follow-up support</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="planning-strip">
+      <div><b>Project viability</b><span>Know what is workable before you invest.</span></div>
+      <div><b>Financial clarity</b><span>See the project cost, returns and funding structure.</span></div>
+      <div><b>Funding readiness</b><span>Organise documentation around the selected funding route.</span></div>
+      <div><b>Value-chain thinking</b><span>Plan beyond production toward processing and market access.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="organizations section" id="organizations">
+  <div class="wrap">
+    <div class="organizations-heading">
+      <div>
+        <div class="eyebrow">GOVERNMENT &amp; DEVELOPMENT PARTNERS</div>
+        <h2>Key <em>Organizations</em> &amp; Institutions</h2>
+        <p>Official portals for fisheries, aquaculture, rural finance, food processing, horticulture and livestock programmes. Select an organization to visit its official website.</p>
+      </div>
+      <div class="organizations-badge"><span>OFFICIAL</span><b>8</b><small>Portals</small></div>
+    </div>
+
+    <div class="organizations-grid">
+      <a class="organization-card" href="https://nfdb.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit National Fisheries Development Board official website">
+        <span class="organization-number">01</span><span class="organization-logo"><img src="assets/organizations/nfdb.png" alt="NFDB official logo" loading="lazy"><span>NFDB</span></span>
+        <div class="organization-content"><h3>National Fisheries Development Board</h3><p>Fisheries and aquaculture development, infrastructure and sector support.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://nfdp.dof.gov.in/nfdp/#/" target="_blank" rel="noopener noreferrer" aria-label="Visit National Fisheries Digital Platform official website">
+        <span class="organization-number">02</span><span class="organization-logo organization-logo-text"><span class="org-text-logo">NFDP</span><span>NFDP</span></span>
+        <div class="organization-content"><h3>National Fisheries Digital Platform</h3><p>Official digital platform for fisheries and aquaculture stakeholders, registration and related fisheries services.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://www.nabard.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit NABARD official website">
+        <span class="organization-number">03</span><span class="organization-logo"><img src="assets/organizations/nabard.png" alt="NABARD official logo" loading="lazy"><span>NABARD</span></span>
+        <div class="organization-content"><h3>National Bank for Agriculture &amp; Rural Development</h3><p>Development finance, rural infrastructure and agriculture-linked funding ecosystem.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://www.nabcons.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit NABCONS official website">
+        <span class="organization-number">04</span><span class="organization-logo"><img src="assets/organizations/nabcons.png" alt="NABCONS official logo" loading="lazy"><span>NABCONS</span></span>
+        <div class="organization-content"><h3>NABARD Consultancy Services</h3><p>Consultancy and advisory services across agriculture, rural development and allied sectors.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://minfahd.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ministry of Fisheries, Animal Husbandry and Dairying official website">
+        <span class="organization-number">05</span><span class="organization-logo"><img src="assets/organizations/mofahd.png" alt="Ministry of Fisheries, Animal Husbandry and Dairying official logo" loading="lazy"><span>MoFAHD</span></span>
+        <div class="organization-content"><h3>Ministry of Fisheries, Animal Husbandry &amp; Dairying</h3><p>Central ministry portal covering fisheries, aquaculture, animal husbandry and dairying.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://www.mofpi.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ministry of Food Processing Industries official website">
+        <span class="organization-number">06</span><span class="organization-logo"><img src="assets/organizations/mofpi.png" alt="Ministry of Food Processing Industries official logo" loading="lazy"><span>MoFPI</span></span>
+        <div class="organization-content"><h3>Ministry of Food Processing Industries</h3><p>Food processing schemes, infrastructure, value addition and sector development.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card" href="https://nhb.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit National Horticulture Board official website">
+        <span class="organization-number">07</span><span class="organization-logo"><img src="assets/organizations/nhb.png" alt="National Horticulture Board official logo" loading="lazy"><span>NHB</span></span>
+        <div class="organization-content"><h3>National Horticulture Board</h3><p>Horticulture development, post-harvest infrastructure and related schemes.</p><span class="organization-link">Visit official website <b>↗</b></span></div>
+      </a>
+      <a class="organization-card organization-card-wide" href="https://www.dahd.gov.in/schemes/programmes/national_livestock_mission" target="_blank" rel="noopener noreferrer" aria-label="Visit National Livestock Mission official website">
+        <span class="organization-number">08</span><span class="organization-logo"><img class="organization-logo-nlm" src="https://pbs.twimg.com/media/F425g-dbwAAnW1v.jpg" alt="National Livestock Mission official visual from Department of Animal Husbandry and Dairying" loading="lazy"><span>NLM</span></span>
+        <div class="organization-content"><h3>National Livestock Mission</h3><p>Official Department of Animal Husbandry &amp; Dairying programme covering entrepreneurship, breed development, feed and fodder, extension and innovation.</p><span class="organization-link">Visit official NLM page <b>↗</b></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process"><div class="wrap"><div class="process-title"><div class="eyebrow white">OUR PROCESS</div><h2>A Proven Path from <em>Idea to Impact</em></h2><p>Six clear stages from assessment through sanction and implementation.</p></div><div class="timeline">
+<div class="step"><span>01</span><i>01</i><h3>Farmer Onboarding</h3><p>Assess profile, land, water and finances.</p></div><div class="line"></div>
+<div class="step"><span>02</span><i>02</i><h3>Scheme Identification</h3><p>Find the best-fit schemes and funding pathway.</p></div><div class="line"></div>
+<div class="step"><span>03</span><i>03</i><h3>DPR &amp; Documentation</h3><p>Prepare technical and financial documents.</p></div><div class="line"></div>
+<div class="step"><span>04</span><i>04</i><h3>Submission &amp; Follow-up</h3><p>Liaise with authorities and manage approvals.</p></div><div class="line"></div>
+<div class="step"><span>05</span><i>05</i><h3>Sanction &amp; Disbursement</h3><p>Coordinate with banks and government.</p></div><div class="line"></div>
+<div class="step final"><span>06</span><i>06</i><h3>Implementation Support</h3><p>Guidance until the project is operational.</p></div></div><blockquote>“From the first application to the final harvest — we're with you at every step.”</blockquote></div></section>
+
+<section class="operations projects-section" id="track">
+  <div class="wrap">
+    <div class="projects-heading">
+      <div>
+        <div class="eyebrow">OUR PROJECTS</div>
+        <h2>Our Completed<br><em>Projects.</em></h2>
+        <p>Explore our completed project portfolio across India. Click a highlighted state on the map to view the projects associated with that location.</p>
+      </div>
+      <div class="projects-summary">
+        <div><b>23</b><span>Projects listed</span></div>
+        <div><b>5</b><span>States covered</span></div>
+      </div>
+    </div>
+
+    <div class="completed-projects-panel">
+      <div class="project-map-card">
+        <div class="map-head">
+          <div>
+            <div class="eyebrow">PROJECT COVERAGE</div>
+            <h3>Where we are working</h3>
+            <p>Highlighted states have projects. Click a state to view its project list.</p>
+          </div>
+          <div class="map-legend"><span class="legend-active"></span> Project state</div>
+        </div>
+
+        <div id="indiaProjectsMap" class="india-projects-map" aria-label="Interactive map of India showing Blue Chain Aqua project states"></div>
+
+        <div class="map-instructions">
+          <span><b>1</b> Select a highlighted state</span>
+          <span><b>2</b> View projects on the right</span>
+        </div>
+
+        <div class="map-source">India state boundaries are shown for geographic reference. Project information is from the Blue Chain Aqua project data.</div>
+      </div>
+
+      <aside class="project-details" aria-live="polite">
+        <div class="project-details-top">
+          <div class="eyebrow">SELECTED STATE</div>
+          <h3 id="selectedStateName">Andhra Pradesh</h3>
+          <span class="project-count" id="selectedStateCount">6 projects</span>
+        </div>
+        <div id="stateProjectList" class="state-project-list"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="why section" id="why"><div class="wrap"><div class="section-title"><div><div class="eyebrow">WHY FARMERS CHOOSE BLUE CHAIN AQUA</div><h2>Expertise that works<br><em>for your project.</em></h2></div></div><div class="why-grid">
+<article><span>01</span><h3>Government-aligned expertise</h3><p>Our team understands NFDB, Ministry of Fisheries and state requirements.</p></article>
+<article><span>02</span><h3>Technical + financial depth</h3><p>Civil engineering, aquaculture science and financial analysis under one roof.</p></article>
+<article><span>03</span><h3>Bankers &amp; Financial Support</h3><p>Support with project finance, banking requirements, loan documentation and financial planning.</p></article>
+<article><span>04</span><h3>Chartered Accountants</h3><p>Professional support for financial analysis, project documentation, accounting and compliance requirements.</p></article>
+<article><span>05</span><h3>Farmer-first approach</h3><p>Maximise subsidy benefit while protecting project viability.</p></article>
+<article class="quote"><p>“Blue Chain Aqua made the complex simple. We got our sanction without any hassle.”</p><small>— Aquaculture Farmer, Andhra Pradesh</small></article>
+</div></div></section>
+
+<section class="cta contact-section" id="contact">
+  <div class="wrap contact-layout">
+    <div class="cta-box contact-intro">
+      <div>
+        <div class="eyebrow white">START YOUR AQUACULTURE JOURNEY</div>
+        <h2>Let's Build a Stronger<br><em>Blue Tomorrow</em></h2>
+        <p>Turn your aquaculture vision into a sanction-ready project.</p>
+      </div>
+      <div class="contact-details">
+        <a href="tel:+917013490968"><span>Call</span><b>+91 7013 490 968</b><small>Pavani K</small></a>
+        <a href="mailto:info@bluechainaqua.in"><span>Email</span><b>info@bluechainaqua.in</b><small>Email Us</small></a>
+        <a class="btn primary" href="mailto:info@bluechainaqua.in?subject=Blue%20Chain%20Aqua%20Consultation">Book a Free Consultation <b>→</b></a>
+      </div>
+    </div>
+
+    <div class="whatsapp-enquiry-card">
+      <div class="whatsapp-enquiry-glow" aria-hidden="true"></div>
+      <div class="whatsapp-enquiry-top">
+        <div>
+          <div class="eyebrow contact-eyebrow">HAVE A QUESTION?</div>
+          <h3>Talk to our <em>aquaculture team</em></h3>
+          <p>Share your doubt and we'll take the conversation directly to WhatsApp.</p>
+        </div>
+        <div class="whatsapp-icon" aria-hidden="true">WA</div>
+      </div>
+      <form id="whatsappEnquiryForm" class="whatsapp-enquiry-form" autocomplete="on" method="post" action="#">
+        <div class="enquiry-grid">
+          <label>
+            <span>Name <b>*</b></span>
+            <input id="enquiryName" name="name" type="text" autocomplete="section-bca name" autocapitalize="words" spellcheck="false" placeholder="Your full name" required>
+          </label>
+          <label>
+            <span>Mobile Number <b>*</b></span>
+            <input id="enquiryMobile" name="tel" type="tel" inputmode="tel" autocomplete="section-bca tel" placeholder="10-digit mobile number" pattern="[0-9+()\s-]{8,18}" required>
+          </label>
+          <label class="enquiry-full">
+            <span>Email <small>(optional)</small></span>
+            <input id="enquiryEmail" name="email" type="email" inputmode="email" autocomplete="section-bca email" spellcheck="false" placeholder="you@example.com">
+          </label>
+          <label class="enquiry-full">
+            <span>Question / Doubt <b>*</b></span>
+            <textarea id="enquiryQuestion" name="question" rows="4" spellcheck="true" placeholder="Tell us what you need help with..." required></textarea>
+          </label>
+        </div>
+        <div class="enquiry-actions">
+          <span class="enquiry-note">* Required fields</span>
+          <div class="whatsapp-action-buttons">
+            <button type="submit" class="whatsapp-submit"><span>Continue on WhatsApp</span><b>↗</b></button>
+          </div>
+        </div>
+        <p class="enquiry-status" id="whatsappEnquiryStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="legal-panels" aria-label="Legal information">
+  <div class="legal-panel" id="privacy"><div class="wrap"><h2>Privacy Policy</h2><p>We use contact details submitted through this website only to respond to consultation and project enquiries. We do not publish or sell submitted contact information.</p></div></div>
+  <div class="legal-panel" id="terms"><div class="wrap"><h2>Terms of Service</h2><p>Website information is provided for general project-planning purposes. Final technical, financial, regulatory and funding decisions are confirmed for each project after assessment.</p></div></div>
+</section>
+
+<footer><div class="wrap footer"><div class="brand footer-brand"><img class="brand-image footer-logo-image" src="assets/blue-chain-aqua-logo-transparent.png" alt="Blue Chain Aqua"></div><div class="footer-links"><a href="#journey">Journey</a><a href="#services">Services</a><a href="#process">Process</a><a href="#track">Projects</a><a href="#organizations">Organizations</a><a href="#contact">Contact</a></div><div class="footer-social" aria-label="Blue Chain Aqua social media"><span>Follow Blue Chain Aqua</span><div class="footer-social-icons"><a href="https://www.instagram.com/bluechain_aqua?stkn=cjJhYTFsMWMzdnBu" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><img src="assets/social/instagram.svg" alt="Instagram"></a><a href="https://www.linkedin.com/in/blue-chain-aqua-29373943a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><img src="assets/social/linkedin.svg" alt="LinkedIn"></a><a href="https://www.facebook.com/share/1ESJ83g2H2/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><img src="assets/social/facebook.svg" alt="Facebook"></a><a href="https://x.com/bluechainaqua" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><img src="assets/social/x.svg" alt="X"></a></div></div><div class="footer-copy"><div class="footer-legal"><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a></div><div>© <span id="year"></span> Blue Chain Aqua. All rights reserved.</div></div></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script src="ai-assistant.js"></script>
+
+<!-- Blue Chain Aqua AI Assistant -->
+<div class="bca-ai" id="bcaAi" aria-label="Blue Chain Aqua AI Assistant">
+  <button class="bca-ai-launch" id="bcaAiLaunch" type="button" aria-expanded="false" aria-controls="bcaAiPanel">
+    <span class="bca-ai-launch-icon">✦</span>
+    <span class="bca-ai-launch-text"><b>Ask Aqua AI</b><small>English • తెలుగు • हिन्दी</small></span>
+  </button>
+
+  <section class="bca-ai-panel" id="bcaAiPanel" hidden>
+    <div class="bca-ai-head">
+      <div class="bca-ai-avatar">BCA</div>
+      <div>
+        <strong>Blue Chain Aqua AI</strong>
+        <span>Ask aquaculture & fisheries questions</span>
+      </div>
+      <button class="bca-ai-close" id="bcaAiClose" type="button" aria-label="Close AI assistant">×</button>
+    </div>
+
+    <div class="bca-ai-tools">
+      <div class="bca-ai-language-wrap">
+        <label for="bcaAiLanguage">Answer language</label>
+        <select id="bcaAiLanguage" aria-label="AI response language">
+          <option value="English">English</option>
+          <option value="Telugu">తెలుగు</option>
+          <option value="Hindi">हिन्दी</option>
+        </select>
+      </div>
+      <button id="bcaAiVoiceToggle" class="bca-ai-voice-toggle" type="button" aria-pressed="true" title="Turn spoken answers on or off">🔊 Voice On</button>
+    </div>
+
+    <div class="bca-ai-messages" id="bcaAiMessages" aria-live="polite">
+      <div class="bca-ai-message bot">
+        <div class="bca-ai-bubble">Hello! I can help with aquaculture and fisheries topics such as pond preparation, water quality, shrimp/fish farming, biofloc, RAS, hatchery, feed, disease prevention, harvesting, processing, project planning and schemes.</div>
+      </div>
+    </div>
+
+    <div class="bca-ai-suggestions" id="bcaAiSuggestions">
+      <button type="button" data-question="How can I prepare a shrimp farming pond before stocking?">Pond preparation</button>
+      <button type="button" data-question="What water quality parameters should I monitor in shrimp farming?">Water quality</button>
+      <button type="button" data-question="Explain biofloc farming and when it is useful.">Biofloc</button>
+      <button type="button" data-question="What should be included in an aquaculture project DPR?">Project DPR</button>
+    </div>
+
+    <div class="bca-ai-voice-status" id="bcaAiVoiceStatus" aria-live="polite">🎙️ Tap the microphone and speak in English, తెలుగు or हिन्दी.</div>
+    <form class="bca-ai-form" id="bcaAiForm">
+      <input id="bcaAiInput" type="text" maxlength="1000" autocomplete="off" placeholder="Ask an aquaculture question..." aria-label="Ask an aquaculture question" required>
+      <button id="bcaAiMic" type="button" class="bca-ai-mic" aria-label="Speak your question" title="Speak your question">🎙️</button>
+      <button id="bcaAiSend" type="submit" aria-label="Send question">➤</button>
+    </form>
+    <div class="bca-ai-note">Voice input can understand English, Telugu and Hindi. The answer always follows your selected language.</div>
+    <div class="bca-ai-note">Aquaculture-only assistant • For project-specific decisions, consult a qualified aquaculture professional.</div>
+  </section>
+</div>
+
+</body>
+</html>

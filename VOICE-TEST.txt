@@ -1,0 +1,29 @@
+BLUE CHAIN AQUA - VOICE AI TEST
+
+1. Set GROQ_API_KEY in your local server/deployment environment. Do not put the key in config.js.
+2. Save config.js.
+3. Double-click index.html and open it in Chrome.
+4. Open Ask Aqua AI.
+5. Choose the answer language:
+   - English
+   - తెలుగు
+   - हिन्दी
+6. Press the microphone button and allow microphone permission.
+7. Speak in English, Telugu, Hindi, or a mixture.
+8. The assistant transcribes what you said and answers ONLY in your selected language.
+
+Examples:
+- Select Telugu. Speak in English: "How do I maintain shrimp pond water quality?"
+  Expected: answer in Telugu.
+- Select Hindi. Speak in Telugu.
+  Expected: answer in Hindi.
+- Select English. Speak in Hindi.
+  Expected: answer in English.
+
+Voice output:
+- Voice On is enabled by default.
+- The browser will read the answer in the selected language when a matching Chrome/Windows voice is available.
+- Use Voice Off if you only want text.
+- A speaker button also appears beside each AI answer so you can replay it.
+
+Note: Groq Whisper is used for multilingual speech-to-text. The browser's built-in speech synthesis is used for spoken answers because Groq's current hosted TTS models support English and Arabic, not Telugu/Hindi.
